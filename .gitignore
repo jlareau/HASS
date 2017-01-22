@@ -1,4 +1,5 @@
 secrets.yaml
+gitupdate.sh
 *.pid
 *.xml
 *.csr
