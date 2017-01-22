@@ -19,3 +19,4 @@ lib
 __pycache__
 .*
 !/.gitignore
+!/.travis.yml
