@@ -49,6 +49,16 @@ sensor:
 tts:
   platform: google
 
+switch:
+  platform: mqtt
+  name: "Family Room Dimmer Z-Wave"
+  state_topic: "smartthings/Family Room Dimmer Z-Wave/switch"
+  command_topic: "smartthings/Family Room Dimmer Z-Wave/switch"
+  brightness_state_topic: "smartthings/Family Room Dimmer Z-Wave/level"
+  brightness_command_topic: "smartthings/Family Room Dimmer Z-Wave/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
 
 mqtt:
   broker: 127.0.0.1
