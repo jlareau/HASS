@@ -66,3 +66,7 @@ mqtt:
   client_id: home-assistant-1
   username: !secret mqtt_username
   password: !secret mqtt_password
+
+nest:
+  client_id: !secret nest_client_ID
+  client_secret: !secret nest_client_secret
