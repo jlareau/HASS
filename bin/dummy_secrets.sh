@@ -4,5 +4,5 @@ echo "homeassistant_longitude: -3.5958" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "http_api_password: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "mqtt_username: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "mqtt_password: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
-echo "nest_client_ID" >> $TRAVIS_BUILD_DIR/secrets.yaml
-echo "nest_client_secret" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "nest_client_ID: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "nest_client_secret: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
