@@ -80,12 +80,27 @@ nest:
   client_secret: !secret nest_client_secret
 
 automation:
-  # Speak when the front door opens
+  # Speak when the front door opens and closes
+- alias: 'Front Door Open'
   trigger:
     platform: state
     entity_id: binary_sensor.front_door_sensor_zwave
+    from: 'off'
+    to: 'on'
   action:
     service: tts.google_say
     entity_id: media_player.chromecastaudio1298
-    data:
-      message: 'Front Door'
+    data_template:
+      message: 'Front Door Open'
+
+- alias: 'Front Door Closed'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door_sensor_zwave
+    from: 'on'
+    to: 'off'
+  action:
+    service: tts.google_say
+    entity_id: media_player.chromecastaudio1298
+    data_template:
+      message: 'Front Door Closed'
