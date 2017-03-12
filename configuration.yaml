@@ -60,6 +60,14 @@ switch:
   payload_off: "off"
   retain: true
 
+binary_sensor:
+  platform: mqtt
+  name: "Front Door Sensor Z-Wave"
+  state_topic: "smartthings/Front Door Sensor Z-Wave/contact"
+  payload_on: "open"
+  payload_off: "closed"
+  retain: true
+
 mqtt:
   broker: 127.0.0.1
   port: 1883
@@ -70,3 +78,14 @@ mqtt:
 nest:
   client_id: !secret nest_client_ID
   client_secret: !secret nest_client_secret
+
+automation:
+  # Speak when the front door opens
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door_sensor_zwave
+  action:
+    service: tts.google_say
+    entity_id: media_player.chromecastaudio1298
+    data:
+      message: 'Front Door'
