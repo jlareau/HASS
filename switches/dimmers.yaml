@@ -1,0 +1,29 @@
+- platform: mqtt
+  name: "Family Room Dimmer Z-Wave"
+  state_topic: "smartthings/Family Room Dimmer Z-Wave/switch"
+  command_topic: "smartthings/Family Room Dimmer Z-Wave/switch"
+  brightness_state_topic: "smartthings/Family Room Dimmer Z-Wave/level"
+  brightness_command_topic: "smartthings/Family Room Dimmer Z-Wave/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Kitchen Dimmer Z-Wave"
+  state_topic: "smartthings/Kitchen Dimmer Z-Wave/switch"
+  command_topic: "smartthings/Kitchen Dimmer Z-Wave/switch"
+  brightness_state_topic: "smartthings/Kitchen Dimmer Z-Wave/level"
+  brightness_command_topic: "smartthings/Kitchen Dimmer Z-Wave/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Breakfast Nook Dimmer Z-Wave"
+  state_topic: "smartthings/Breakfast Nook Dimmer Z-Wave/switch"
+  command_topic: "smartthings/Breakfast Nook Dimmer Z-Wave/switch"
+  brightness_state_topic: "smartthings/Breakfast Nook Dimmer Z-Wave/level"
+  brightness_command_topic: "smartthings/Breakfast Nook Dimmer Z-Wave/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true

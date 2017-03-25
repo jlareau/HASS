@@ -1,0 +1,14 @@
+
+- platform: mqtt
+  name: "Front Door Sensor Z-Wave"
+  state_topic: "smartthings/Front Door Sensor Z-Wave/contact"
+  payload_on: "open"
+  payload_off: "closed"
+  retain: true
+
+- platform: mqtt
+  name: "Garage Entry Door Sensor Z-Wave"
+  state_topic: "smartthings/Garage Entry Sensor Z-Wave/contact"
+  payload_on: "open"
+  payload_off: "closed"
+  retain: true

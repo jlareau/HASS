@@ -1,0 +1,40 @@
+
+- alias: 'Turn Garage Entry Light On When Door Opened'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.garage_entry_door_sensor_zwave
+    from: 'off'
+    to: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.garage_entry
+
+- alias: 'Turn Garage Entry Light Off After Inactivity'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor
+    from: 'on'
+    to: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.garage_entry
+
+- alias: 'Turn Kitchen Light On After Motion'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor
+    from: 'off'
+    to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.kitchen_dimmer_zwave
+
+- alias: 'Turn Kitchen Light Off After Inactivity'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor
+    from: 'on'
+    to: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.kitchen_dimmer_zwave

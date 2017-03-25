@@ -1,0 +1,7 @@
+
+- platform: mqtt
+  name: "Kitchen Motion Sensor"
+  state_topic: "smartthings/Kitchen Aeon Multisensor 6 Z-Wave/motion"
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true

@@ -1,0 +1,48 @@
+
+- alias: 'Speak Front Door Open'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door_sensor_zwave
+    from: 'off'
+    to: 'on'
+  action:
+    service: tts.google_say
+    entity_id: media_player.chromecastaudio1298
+    data_template:
+      message: 'Front Door Open'
+
+- alias: 'Speak Front Door Closed'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door_sensor_zwave
+    from: 'on'
+    to: 'off'
+  action:
+    service: tts.google_say
+    entity_id: media_player.chromecastaudio1298
+    data_template:
+      message: 'Front Door Closed'
+
+- alias: 'Speak Garage Entry Door Open'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.garage_entry_door_sensor_zwave
+    from: 'off'
+    to: 'on'
+  action:
+    service: tts.google_say
+    entity_id: media_player.chromecastaudio1298
+    data_template:
+      message: 'Garage Entry Open'
+
+- alias: 'Speak Garage Entry Door Closed'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.garage_entry_door_sensor_zwave
+    from: 'on'
+    to: 'off'
+  action:
+    service: tts.google_say
+    entity_id: media_player.chromecastaudio1298
+    data_template:
+      message: 'Garage Entry Closed'

@@ -1,14 +1,9 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Home
-  # Location required to calculate the time the sun rises and sets
   latitude: !secret homeassistant_latitude
   longitude: !secret homeassistant_longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 186.97
-  # metric for Metric, imperial for Imperial
   unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Detroit
 
 # Show links to resources in log and frontend
@@ -49,59 +44,6 @@ sensor:
 tts:
   platform: google
 
-switch:
-  - platform: mqtt
-    name: "Family Room Dimmer Z-Wave"
-    state_topic: "smartthings/Family Room Dimmer Z-Wave/switch"
-    command_topic: "smartthings/Family Room Dimmer Z-Wave/switch"
-    brightness_state_topic: "smartthings/Family Room Dimmer Z-Wave/level"
-    brightness_command_topic: "smartthings/Family Room Dimmer Z-Wave/level"
-    payload_on: "on"
-    payload_off: "off"
-    retain: true
-
-  - platform: mqtt
-    name: "Kitchen Dimmer Z-Wave"
-    state_topic: "smartthings/Kitchen Dimmer Z-Wave/switch"
-    command_topic: "smartthings/Kitchen Dimmer Z-Wave/switch"
-    brightness_state_topic: "smartthings/Kitchen Dimmer Z-Wave/level"
-    brightness_command_topic: "smartthings/Kitchen Dimmer Z-Wave/level"
-    payload_on: "on"
-    payload_off: "off"
-    retain: true
-
-  - platform: mqtt
-    name: "Breakfast Nook Dimmer Z-Wave"
-    state_topic: "smartthings/Breakfast Nook Dimmer Z-Wave/switch"
-    command_topic: "smartthings/Breakfast Nook Dimmer Z-Wave/switch"
-    brightness_state_topic: "smartthings/Breakfast Nook Dimmer Z-Wave/level"
-    brightness_command_topic: "smartthings/Breakfast Nook Dimmer Z-Wave/level"
-    payload_on: "on"
-    payload_off: "off"
-    retain: true
-
-binary_sensor:
-  - platform: mqtt
-    name: "Front Door Sensor Z-Wave"
-    state_topic: "smartthings/Front Door Sensor Z-Wave/contact"
-    payload_on: "open"
-    payload_off: "closed"
-    retain: true
-
-  - platform: mqtt
-    name: "Garage Entry Door Sensor Z-Wave"
-    state_topic: "smartthings/Garage Entry Sensor Z-Wave/contact"
-    payload_on: "open"
-    payload_off: "closed"
-    retain: true
-
-  - platform: mqtt
-    name: "Kitchen Motion Sensor"
-    state_topic: "smartthings/Kitchen Aeon Multisensor 6 Z-Wave/motion"
-    payload_on: "active"
-    payload_off: "inactive"
-    retain: true
-
 mqtt:
   broker: 127.0.0.1
   port: 1883
@@ -113,92 +55,6 @@ nest:
   client_id: !secret nest_client_ID
   client_secret: !secret nest_client_secret
 
-automation:
-- alias: 'Speak Front Door Open'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.front_door_sensor_zwave
-    from: 'off'
-    to: 'on'
-  action:
-    service: tts.google_say
-    entity_id: media_player.chromecastaudio1298
-    data_template:
-      message: 'Front Door Open'
-
-- alias: 'Speak Front Door Closed'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.front_door_sensor_zwave
-    from: 'on'
-    to: 'off'
-  action:
-    service: tts.google_say
-    entity_id: media_player.chromecastaudio1298
-    data_template:
-      message: 'Front Door Closed'
-
-- alias: 'Speak Garage Entry Door Open'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.garage_entry_door_sensor_zwave
-    from: 'off'
-    to: 'on'
-  action:
-    service: tts.google_say
-    entity_id: media_player.chromecastaudio1298
-    data_template:
-      message: 'Garage Entry Open'
-
-- alias: 'Speak Garage Entry Door Closed'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.garage_entry_door_sensor_zwave
-    from: 'on'
-    to: 'off'
-  action:
-    service: tts.google_say
-    entity_id: media_player.chromecastaudio1298
-    data_template:
-      message: 'Garage Entry Closed'
-
-automation 2:
-- alias: 'Turn Garage Entry Light On When Door Opened'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.garage_entry_door_sensor_zwave
-    from: 'off'
-    to: 'on'
-  action:
-    service: light.turn_on
-    entity_id: light.garage_entry_color
-
-- alias: 'Turn Garage Entry Light Off After Inactivity'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.kitchen_motion_sensor
-    from: 'on'
-    to: 'off'
-  action:
-    service: light.turn_off
-    entity_id: light.garage_entry_color
-
-- alias: 'Turn Kitchen Light On After Motion'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.kitchen_motion_sensor
-    from: 'off'
-    to: 'on'
-  action:
-    service: switch.turn_on
-    entity_id: switch.kitchen_dimmer_zwave
-
-- alias: 'Turn Kitchen Light Off After Inactivity'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.kitchen_motion_sensor
-    from: 'on'
-    to: 'off'
-  action:
-    service: switch.turn_off
-    entity_id: switch.kitchen_dimmer_zwave
+switch: !include_dir_merge_list switches/
+binary_sensor: !include_dir_merge_list binary_sensors/
+automation: !include_dir_merge_list automations/
