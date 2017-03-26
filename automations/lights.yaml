@@ -85,7 +85,7 @@
     #Low light levels
     - condition: numeric_state
       entity_id: sensor.kitchen_light_level
-      below: 10
+      below: 5
   action:
     service: switch.turn_on
     entity_id: switch.kitchen_dimmer_zwave
