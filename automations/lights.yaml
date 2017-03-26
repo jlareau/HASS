@@ -1,25 +1,58 @@
 
-- alias: 'Turn Garage Entry Light On When Door Opened'
+- alias: 'Turn Garage Entry Light On'
   trigger:
-    platform: state
-    entity_id: binary_sensor.garage_entry_door_sensor_zwave
-    from: 'off'
-    to: 'on'
+    - platform: state
+      entity_id: binary_sensor.garage_entry_door_sensor_zwave
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.kitchen_motion_sensor
+      to: 'on'
   action:
     service: light.turn_on
     entity_id: light.garage_entry
 
-- alias: 'Turn Garage Entry Light Off After Inactivity'
+- alias: 'Turn Garage Entry Light Off'
   trigger:
-    platform: state
-    entity_id: binary_sensor.kitchen_motion_sensor
-    from: 'on'
-    to: 'off'
+    #turn off the light if the kitchen motion sensor detects no motion
+    - platform: state
+      entity_id: binary_sensor.kitchen_motion_sensor
+      from: 'on'
+      to: 'off'
+      #turn off light x time after last movement
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 15
+    #turn off the light if the door has been opened and then closed for x time
+    - platform: state
+      entity_id: binary_sensor.garage_entry_door_sensor_zwave
+      from: 'on'
+      to: 'off'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 30
+      #turn off the light if it's been on too long
+    - platform: state
+      entity_id: light.garage_entry
+      to: 'on'
+      # Alias for 'to'
+      state: 'on'
+      for:
+        hours: 0
+        minutes: 2
+        seconds: 0
+  # only turn light off if there is no motion in the kitchen
+  #condition:
+    #condition: state
+    #entity_id: binary_sensor.kitchen_motion_sensor
+    #state: 'off'
   action:
     service: light.turn_off
     entity_id: light.garage_entry
 
-- alias: 'Turn Kitchen Light On After Motion'
+- alias: 'Turn Kitchen Light On'
   trigger:
     platform: state
     entity_id: binary_sensor.kitchen_motion_sensor
@@ -29,12 +62,17 @@
     service: switch.turn_on
     entity_id: switch.kitchen_dimmer_zwave
 
-- alias: 'Turn Kitchen Light Off After Inactivity'
+- alias: 'Turn Kitchen Light Off'
   trigger:
     platform: state
     entity_id: binary_sensor.kitchen_motion_sensor
     from: 'on'
     to: 'off'
+    #turn off light x minutes after last movement
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
   action:
     service: switch.turn_off
     entity_id: switch.kitchen_dimmer_zwave
