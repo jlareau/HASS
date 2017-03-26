@@ -1,0 +1,5 @@
+
+- platform: mqtt
+  name: "Kitchen Light Level"
+  state_topic: "smartthings/Kitchen Aeon Multisensor 6 Z-Wave/illuminance"
+  unit_of_measurement: "lux"
