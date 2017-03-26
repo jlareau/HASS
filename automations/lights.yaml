@@ -1,30 +1,42 @@
 
 - alias: 'Turn Garage Entry Light On'
   trigger:
+    #If door opens
     - platform: state
       entity_id: binary_sensor.garage_entry_door_sensor_zwave
       from: 'off'
       to: 'on'
+    #If motion detected
     - platform: state
       entity_id: binary_sensor.kitchen_motion_sensor
       to: 'on'
+  condition:
+    condition: or
+    conditions:
+    #Starting 1 hour before sunset
+    - condition: sun
+      after: sunset
+      after_offset: "-1:00:00"
+    #Low light levels
+    - condition: numeric_state
+      entity_id: sensor.kitchen_light_level
+      below: 10
   action:
     service: light.turn_on
     entity_id: light.garage_entry
 
 - alias: 'Turn Garage Entry Light Off'
   trigger:
-    #turn off the light if the kitchen motion sensor detects no motion
+    #If no motion
     - platform: state
       entity_id: binary_sensor.kitchen_motion_sensor
       from: 'on'
       to: 'off'
-      #turn off light x time after last movement
       for:
         hours: 0
         minutes: 0
         seconds: 15
-    #turn off the light if the door has been opened and then closed for x time
+    #If door has been opened and then closed for x amount of time
     - platform: state
       entity_id: binary_sensor.garage_entry_door_sensor_zwave
       from: 'on'
@@ -33,7 +45,7 @@
         hours: 0
         minutes: 0
         seconds: 30
-      #turn off the light if it's been on too long
+    #If it's been on too long
     - platform: state
       entity_id: light.garage_entry
       to: 'on'
@@ -53,22 +65,38 @@
     entity_id: light.garage_entry
 
 - alias: 'Turn Kitchen Light On'
+  #If motion is detected
   trigger:
     platform: state
     entity_id: binary_sensor.kitchen_motion_sensor
     from: 'off'
     to: 'on'
+  condition:
+    condition: or
+    conditions:
+    #Starting 1 hour before sunset
+    - condition: sun
+      after: sunset
+      after_offset: "-1:00:00"
+    #Cloudy day
+    #- condition: numeric_state
+      #entity_id: sensor.yr_cloudiness
+      #above: 75
+    #Low light levels
+    - condition: numeric_state
+      entity_id: sensor.kitchen_light_level
+      below: 10
   action:
     service: switch.turn_on
     entity_id: switch.kitchen_dimmer_zwave
 
 - alias: 'Turn Kitchen Light Off'
+  #If no motion after x amount of time
   trigger:
     platform: state
     entity_id: binary_sensor.kitchen_motion_sensor
     from: 'on'
     to: 'off'
-    #turn off light x minutes after last movement
     for:
       hours: 0
       minutes: 2
@@ -76,3 +104,14 @@
   action:
     service: switch.turn_off
     entity_id: switch.kitchen_dimmer_zwave
+
+- alias: 'Turn Living Room Lights On'
+  #When solar elevation is low
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 3.5
+  action:
+    service: switch.turn_on
+    entity_id: switch.family_room_dimmer_zwave
