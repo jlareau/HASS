@@ -1,10 +1,11 @@
 homeassistant:
-  name: Home
+  name: HASS-1
   latitude: !secret homeassistant_latitude
   longitude: !secret homeassistant_longitude
-  elevation: 186.97
+  elevation: !secret home_elevation
   unit_system: imperial
   time_zone: America/Detroit
+  customize: !include customize.yaml
 
 # Show links to resources in log and frontend
 #introduction:
@@ -30,8 +31,15 @@ conversation:
 # Enables support for tracking state changes over time.
 history:
 
+# Store the history in an sqlite database
+recorder:
+  purge_days: 7
+
 # View all events in a logbook
 logbook:
+
+logger:
+  default: info
 
 # Track the sun
 sun:
@@ -51,6 +59,7 @@ nest:
   client_id: !secret nest_client_ID
   client_secret: !secret nest_client_secret
 
+group: !include groups.yaml
 sensor: !include_dir_merge_list sensors/
 switch: !include_dir_merge_list switches/
 binary_sensor: !include_dir_merge_list binary_sensors/

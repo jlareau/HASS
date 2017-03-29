@@ -1,0 +1,147 @@
+  bedroom_card:
+    name: Bedroom
+    entities:
+      - light.joshs_nightstand_lamp
+      - light.sarahs_nightstand_lamp
+
+  kitchen_card:
+    name: Kitchen
+    entities:
+      - switch.breakfast_nook_dimmer_zwave
+      - switch.kitchen_dimmer_zwave
+      - sensor.kitchen_light_level
+      - binary_sensor.kitchen_motion_sensor
+
+  dining_room_card:
+    name: Dining Room
+    entities:
+      - media_player.chromecastaudio1298
+      - binary_sensor.front_door_sensor_zwave
+
+  garage_card:
+    name: Garage
+    entities:
+      - light.garage_entry
+      - binary_sensor.garage_entry_door_sensor_zwave
+
+  family_room_card:
+    name: Family Room
+    entities:
+      - switch.family_room_dimmer_zwave
+
+  climate_card:
+    name: Climate
+    entities:
+      - sensor.family_room_thermostat_nest_temperature
+      - sensor.family_room_thermostat_nest_humidity
+      - sensor.family_room_thermostat_nest_operation_mode
+      - sensor.family_room_thermostat_nest_hvac_state
+      - sensor.family_room_thermostat_nest_target
+
+  thermostat_card:
+    name: Thermostat
+    entities:
+      - binary_sensor.family_room_thermostat_nest_fan
+      - binary_sensor.family_room_thermostat_nest_has_leaf
+      - binary_sensor.family_room_thermostat_nest_is_locked
+      - binary_sensor.family_room_thermostat_nest_is_using_emergency_heat
+      - binary_sensor.family_room_thermostat_nest_online
+
+  weather_card:
+    name: Weather
+    entities:
+      - sensor.yr_cloudiness
+      - sensor.yr_dewpoint_temperature
+      - sensor.yr_fog
+      - sensor.yr_high_clouds
+      - sensor.yr_humidity
+      - sensor.yr_low_clouds
+      - sensor.yr_medium_clouds
+      - sensor.yr_precipitation
+      - sensor.yr_pressure
+      - sensor.yr_symbol
+      - sensor.yr_temperature
+      - sensor.yr_wind_direction
+      - sensor.yr_wind_speed
+      - sun.sun
+
+  lights_view:
+    name: Lights
+    view: yes
+    entities:
+      - switch.family_room_dimmer_zwave
+      - switch.breakfast_nook_dimmer_zwave
+      - switch.kitchen_dimmer_zwave
+      - light.garage_entry
+      - light.joshs_nightstand_lamp
+      - light.sarahs_nightstand_lamp
+
+  climate_view:
+    name: Climate
+    view: yes
+    entities:
+      - group.weather_card
+      - group.thermostat_card
+      - group.climate_card
+
+  family_room_view:
+      name: Family Room
+      view: yes
+      entities:
+        - group.family_room_card
+        - sensor.family_room_thermostat_nest_temperature
+        - media_player.family_room_apple_tv
+        - automation.turn_living_room_lights_on
+
+  kitchen_view:
+      name: Kitchen
+      view: yes
+      entities:
+        - group.kitchen_card
+        - automation.turn_kitchen_light_on
+        - automation.turn_kitchen_light_off
+
+  garage_view:
+    name: Garage
+    view: yes
+    entities:
+      - group.garage_card
+      - automation.turn_garage_entry_light_on
+      - automation.turn_garage_entry_light_off
+      - automation.speak_garage_entry_door_closed
+      - automation.speak_garage_entry_door_open
+
+  dining_room_view:
+    name: Dining Room
+    view: yes
+    entities:
+      - group.dining_room_card
+      - automation.speak_front_door_closed
+      - automation.speak_front_door_open
+
+  upstairs_view:
+    name: Upstairs
+    view: yes
+    entities:
+      - group.bedroom_card
+
+  automations_view:
+      name: Automations
+      view: yes
+      entities:
+        - automation.speak_front_door_closed
+        - automation.speak_front_door_open
+        - automation.speak_garage_entry_door_closed
+        - automation.speak_garage_entry_door_open
+        - automation.turn_garage_entry_light_off
+        - automation.turn_garage_entry_light_on
+        - automation.turn_kitchen_light_off
+        - automation.turn_kitchen_light_on
+        - automation.turn_living_room_lights_on
+
+  media_view:
+      name: Media
+      view: yes
+      entities:
+        - media_player.family_room_apple_tv
+        - media_player.chromecastaudio1298
