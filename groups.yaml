@@ -23,6 +23,8 @@
     entities:
       - light.garage_entry
       - binary_sensor.garage_entry_door_sensor_zwave
+      - light.garage_1
+      - light.garage_2
 
   family_room_card:
     name: Family Room
@@ -75,6 +77,8 @@
       - light.garage_entry
       - light.joshs_nightstand_lamp
       - light.sarahs_nightstand_lamp
+      - light.garage_1
+      - light.garage_2
 
   climate_view:
     name: Climate
