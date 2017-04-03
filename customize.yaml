@@ -2,3 +2,97 @@
   binary_sensor.front_door_sensor_zwave:
     friendly_name: Front Door
     device_class: opening
+    icon: mdi:glassdoor
+
+  switch.family_room_dimmer_zwave:
+    friendly_name: Family Room Lights
+    icon: mdi:lightbulb-on-outline
+
+  sensor.family_room_thermostat_nest_temperature:
+    friendly_name: Inside Temperature
+  sensor.family_room_thermostat_nest_humidity:
+    friendly_name: Inside Humidity
+    icon: mdi:water-percent
+  sensor.family_room_thermostat_nest_operation_mode:
+    friendly_name: HVAC Mode
+    icon: mdi:checkerboard
+  sensor.family_room_thermostat_nest_hvac_state:
+    friendly_name: HVAC State
+    icon: mdi:flag-checkered
+  sensor.family_room_thermostat_nest_target:
+    friendly_name: Target Temperature
+    icon: mdi:target
+
+  binary_sensor.family_room_thermostat_nest_fan:
+    friendly_name: Fan
+    icon: mdi:fan
+  binary_sensor.family_room_thermostat_nest_has_leaf:
+    friendly_name: Leaf
+    icon: mdi:leaf
+  binary_sensor.family_room_thermostat_nest_is_locked:
+    friendly_name: Locked
+    icon: mdi:lock-open-outline
+  binary_sensor.family_room_thermostat_nest_is_using_emergency_heat:
+    friendly_name: Emergency Heat
+    icon: mdi:alert-outline
+  binary_sensor.family_room_thermostat_nest_online:
+    friendly_name: Online
+
+  sensor.yr_symbol:
+    friendly_name: Conditions
+  sensor.yr_humidity:
+    friendly_name: Outside Humidity
+    icon: mdi:water-percent
+  sensor.yr_temperature:
+    friendly_name: Outside Temperature
+  sensor.yr_precipitation:
+    friendly_name: Rain
+    icon: mdi:weather-pouring
+  sensor.yr_wind_speed:
+    friendly_name: Wind Speed
+    icon: mdi:weather-windy
+  sun.sun:
+    friendly_name: Sun
+  sensor.yr_cloudiness:
+    friendly_name: Clouds
+    icon: mdi:weather-cloudy
+  sensor.yr_dewpoint_temperature:
+    friendly_name: Dewpoint
+    icon: mdi:weather-rainy
+  sensor.yr_fog:
+    friendly_name: Fog
+    icon: mdi:weather-fog
+  sensor.yr_pressure:
+    hidden: true
+  sensor.yr_high_clouds:
+    hidden: true
+  sensor.yr_low_clouds:
+    hidden: true
+  sensor.yr_medium_clouds:
+    hidden: true
+  sensor.yr_wind_direction:
+    hidden: true
+
+  light.garage_entry:
+    friendly_name: Garage Entry Light
+  binary_sensor.garage_entry_door_sensor_zwave:
+    friendly_name: Garage Entry
+    device_class: opening
+    icon: mdi:glassdoor
+  light.garage_1:
+    friendly_name: Garage Light
+  light.garage_2:
+    friendly_name: Garage Light
+
+  switch.breakfast_nook_dimmer_zwave:
+    friendly_name: Kitchen Table Light
+    icon: mdi:lightbulb-on-outline
+  switch.kitchen_dimmer_zwave:
+    friendly_name: Kitchen Ceiling Light
+    icon: mdi:lightbulb-on-outline
+  sensor.kitchen_light_level:
+    friendly_name: Kitchen Light Level
+    icon: mdi:spotlight
+  binary_sensor.kitchen_motion_sensor:
+    friendly_name: Kitchen Motion
+    icon: mdi:account-circle
