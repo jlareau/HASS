@@ -1,0 +1,19 @@
+- platform: mqtt
+  name: "Garage Entry Toggle Z-Wave"
+  state_topic: "smartthings/Garage Entry Toggle Z-Wave/switch"
+  command_topic: "smartthings/Garage Entry Toggle Z-Wave/switch"
+  brightness_state_topic: "smartthings/Garage Entry Toggle Z-Wave/level"
+  brightness_command_topic: "smartthings/Garage Entry Toggle Z-Wave/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true
+
+- platform: mqtt
+  name: "Garage Lights Toggle Z-Wave"
+  state_topic: "smartthings/Garage Lights Toggle Z-Wave/switch"
+  command_topic: "smartthings/Garage Lights Toggle Z-Wave/switch"
+  brightness_state_topic: "smartthings/Garage Lights Toggle Z-Wave/level"
+  brightness_command_topic: "smartthings/Garage Lights Toggle Z-Wave/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true

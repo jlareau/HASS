@@ -31,9 +31,8 @@
     name: Garage
     entities:
       - binary_sensor.garage_entry_door_sensor_zwave
-      - light.garage_entry
-      - light.garage_1
-      - light.garage_2
+      - switch.garage_entry_toggle_zwave
+      - switch.garage_lights_toggle_zwave
 
   family_room_card:
     name: Family Room
@@ -49,7 +48,7 @@
       - sensor.family_room_thermostat_nest_hvac_state
       - sensor.family_room_thermostat_nest_humidity
       - sensor.yr_humidity
-      
+
   climate_card:
     name: Climate
     entities:
@@ -93,11 +92,26 @@
       - switch.family_room_dimmer_zwave
       - switch.breakfast_nook_dimmer_zwave
       - switch.kitchen_dimmer_zwave
-      - light.garage_entry
+      - switch.garage_lights_toggle_zwave
+      - switch.garage_entry_toggle_zwave
       - light.joshs_nightstand_lamp
       - light.sarahs_nightstand_lamp
-      - light.garage_1
-      - light.garage_2
+
+  automations_view:
+      name: Automations
+      view: yes
+      entities:
+        - automation.speak_front_door_closed
+        - automation.speak_front_door_open
+        - automation.speak_garage_entry_door_closed
+        - automation.speak_garage_entry_door_open
+        - automation.turn_garage_lights_off
+        - automation.turn_garage_lights_on
+        - automation.turn_garage_entry_light_off
+        - automation.turn_garage_entry_light_on
+        - automation.turn_kitchen_light_off
+        - automation.turn_kitchen_light_on
+        - automation.turn_living_room_lights_on
 
   climate_view:
     name: Climate
@@ -155,22 +169,6 @@
     view: yes
     entities:
       - group.bedroom_card
-
-  automations_view:
-      name: Automations
-      view: yes
-      entities:
-        - automation.speak_front_door_closed
-        - automation.speak_front_door_open
-        - automation.speak_garage_entry_door_closed
-        - automation.speak_garage_entry_door_open
-        - automation.turn_garage_lights_off
-        - automation.turn_garage_lights_on
-        - automation.turn_garage_entry_light_off
-        - automation.turn_garage_entry_light_on
-        - automation.turn_kitchen_light_off
-        - automation.turn_kitchen_light_on
-        - automation.turn_living_room_lights_on
 
   media_view:
       name: Media
