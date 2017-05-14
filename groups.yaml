@@ -37,6 +37,10 @@
       - switch.garage_lights_toggle_zwave
       - switch.driveway_lights_toggle_zwave
       - switch.vestibule_lights_toggle_zwave
+      - cover.garage_door
+      - sensor.garage_door_status
+      - sensor.garage_door_time_in_state
+      - sensor.garage_door_wifi_signal_strength
 
   family_room_card:
     name: Family Room

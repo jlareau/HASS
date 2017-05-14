@@ -7,3 +7,5 @@ echo "mqtt_username: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "mqtt_password: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "nest_client_ID: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "nest_client_secret: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
+echo "garadget_username: dummy" >>  $TRAVIS_BUILD_DIR/secrets.yaml
+echo "garadget_password: dummy" >>  $TRAVIS_BUILD_DIR/secrets.yaml

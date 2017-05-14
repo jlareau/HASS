@@ -1,3 +1,8 @@
+  sensor.garage_door_time_in_state:
+    icon: mdi:timer-sand
+  sensor.garage_door_wifi_signal_strength:
+    icon: mdi:wifi
+
   media_player.chromecastaudio8791:
     friendly_name: Master Bedroom Chromecast
     icon: mdi:account-circle
