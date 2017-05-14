@@ -27,3 +27,13 @@
   payload_on: "on"
   payload_off: "off"
   retain: true
+
+- platform: mqtt
+  name: "Upstairs Hallway Dimmer Z-Wave"
+  state_topic: "smartthings/Upstairs Hallway Z-Wave Plus/switch"
+  command_topic: "smartthings/Upstairs Hallway Z-Wave Plus/switch"
+  brightness_state_topic: "smartthings/Upstairs Hallway Z-Wave Plus/level"
+  brightness_command_topic: "smartthings/Upstairs Hallway Z-Wave Plus/level"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true

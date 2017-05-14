@@ -5,11 +5,11 @@
       - group.kitchen_card
       - group.garage_card
       - group.front_room_card
-      - group.bedroom_card
+      - group.master_bedroom_card
       - group.default_environment_card
 
-  bedroom_card:
-    name: Bedroom
+  master_bedroom_card:
+    name: Master Bedroom
     entities:
       - light.joshs_nightstand_lamp
       - light.sarahs_nightstand_lamp
@@ -26,13 +26,17 @@
     name: Front Room
     entities:
       - binary_sensor.front_door_sensor_zwave
+      - switch.upstairs_hallway_dimmer_zwave
+      - switch.front_porch_lights_toggle_zwave
 
   garage_card:
     name: Garage
     entities:
       - binary_sensor.garage_entry_door_sensor_zwave
-      - switch.garage_entry_toggle_zwave
+      - switch.garage_entry_lights_toggle_zwave
       - switch.garage_lights_toggle_zwave
+      - switch.driveway_lights_toggle_zwave
+      - switch.vestibule_lights_toggle_zwave
 
   family_room_card:
     name: Family Room
@@ -93,7 +97,11 @@
       - switch.breakfast_nook_dimmer_zwave
       - switch.kitchen_dimmer_zwave
       - switch.garage_lights_toggle_zwave
-      - switch.garage_entry_toggle_zwave
+      - switch.garage_entry_lights_toggle_zwave
+      - switch.upstairs_hallway_dimmer_zwave
+      - switch.driveway_lights_toggle_zwave
+      - switch.front_porch_lights_toggle_zwave
+      - switch.vestibule_lights_toggle_zwave
       - light.joshs_nightstand_lamp
       - light.sarahs_nightstand_lamp
 
@@ -168,7 +176,8 @@
     name: Upstairs
     view: yes
     entities:
-      - group.bedroom_card
+      - group.master_bedroom_card
+      - switch.upstairs_hallway_dimmer_zwave
 
   media_view:
       name: Media
@@ -176,3 +185,4 @@
       entities:
         - media_player.family_room_apple_tv
         - media_player.chromecastaudio1298
+        - media_player.chromecastaudio8791

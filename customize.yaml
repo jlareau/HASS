@@ -1,3 +1,13 @@
+  media_player.chromecastaudio8791:
+    friendly_name: Master Bedroom Chromecast
+    icon: mdi:account-circle
+  media_player.chromecastaudio1298:
+    friendly_name: Dining Room Chromecast
+    icon: mdi:account-circle
+  media_player.family_room_apple_tv:
+    friendly_name: Family Room Apple TV
+    icon: mdi:account-circle
+
   binary_sensor.front_door_sensor_zwave:
     friendly_name: Front Door
     device_class: opening
@@ -17,17 +27,29 @@
   switch.family_room_dimmer_zwave:
     friendly_name: Family Room Lights
     icon: mdi:lightbulb-on-outline
-  switch.garage_entry_toggle_zwave:
-    friendly_name: Garage Entry Light
+  switch.garage_entry_lights_toggle_zwave:
+    friendly_name: Garage Entry Lights
     icon: mdi:lightbulb-on-outline
   switch.garage_lights_toggle_zwave:
     friendly_name: Garage Ceiling Lights
     icon: mdi:lightbulb-on-outline
   switch.breakfast_nook_dimmer_zwave:
-    friendly_name: Kitchen Table Light
+    friendly_name: Kitchen Table Lights
     icon: mdi:lightbulb-on-outline
   switch.kitchen_dimmer_zwave:
-    friendly_name: Kitchen Ceiling Light
+    friendly_name: Kitchen Ceiling Lights
+    icon: mdi:lightbulb-on-outline
+  switch.upstairs_hallway_dimmer_zwave:
+    friendly_name: Upstairs Hallway Lights
+    icon: mdi:lightbulb-on-outline
+  switch.front_porch_lights_toggle_zwave:
+    friendly_name: Front Porch Lights
+    icon: mdi:lightbulb-on-outline
+  switch.driveway_lights_toggle_zwave:
+    friendly_name: Driveway Lights
+    icon: mdi:lightbulb-on-outline
+  switch.vestibule_lights_toggle_zwave:
+    friendly_name: Side Door Lights
     icon: mdi:lightbulb-on-outline
 
   sensor.family_room_thermostat_nest_temperature:
