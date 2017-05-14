@@ -8,6 +8,30 @@
       - group.master_bedroom_card
       - group.default_environment_card
 
+  upstairs_protect_card:
+    name: Upstairs Smoke & CO2
+    entities:
+      - binary_sensor.upstairs_nest_protect_online
+      - sensor.upstairs_nest_protect_battery_health
+      - sensor.upstairs_nest_protect_co_status
+      - sensor.upstairs_nest_protect_smoke_status
+
+  kitchen_protect_card:
+    name: Kitchen Smoke & CO2
+    entities:
+      - binary_sensor.kitchen_nest_protect_online
+      - sensor.kitchen_nest_protect_battery_health
+      - sensor.kitchen_nest_protect_co_status
+      - sensor.kitchen_nest_protect_smoke_status
+
+  basement_protect_card:
+    name: Basement Smoke & CO2
+    entities:
+      - binary_sensor.basement_nest_protect_online
+      - sensor.basement_nest_protect_battery_health
+      - sensor.basement_nest_protect_co_status
+      - sensor.basement_nest_protect_smoke_status
+
   master_bedroom_card:
     name: Master Bedroom
     entities:
@@ -147,6 +171,7 @@
       view: yes
       entities:
         - group.kitchen_card
+        - group.kitchen_protect_card
         - automation.turn_kitchen_light_on
         - automation.turn_kitchen_light_off
 
@@ -181,7 +206,14 @@
     view: yes
     entities:
       - group.master_bedroom_card
+      - group.upstairs_protect_card
       - switch.upstairs_hallway_dimmer_zwave
+
+  basement_view:
+    name: Basement
+    view: yes
+    entities:
+      - group.basement_protect_card
 
   media_view:
       name: Media
