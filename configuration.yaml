@@ -59,16 +59,20 @@ cover:
         password: !secret garadget_password
         name: Garage door
 
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+nest:
+  client_id: !secret nest_client_ID
+  client_secret: !secret nest_client_secret
+
 mqtt:
   broker: 127.0.0.1
   port: 1883
   client_id: home-assistant-1
   username: !secret mqtt_username
   password: !secret mqtt_password
-
-nest:
-  client_id: !secret nest_client_ID
-  client_secret: !secret nest_client_secret
 
 group: !include groups.yaml
 sensor: !include_dir_merge_list sensors/

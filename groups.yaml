@@ -3,10 +3,24 @@
     entities:
       - group.family_room_card
       - group.kitchen_card
+      - group.side_door_card
       - group.garage_card
+      - group.garage_entry_card
       - group.front_room_card
       - group.master_bedroom_card
       - group.default_environment_card
+      - group.exterior_lighting_card
+
+  ring_doorbell_card:
+    name: Ring Side Door
+    entities:
+      - binary_sensor.ring_side_door_ding
+      - binary_sensor.ring_side_door_motion
+      - sensor.ring_side_door_battery
+      - sensor.ring_side_door_last_activity
+      - sensor.ring_side_door_last_ding
+      - sensor.ring_side_door_last_motion
+      - sensor.ring_side_door_volume
 
   upstairs_protect_card:
     name: Upstairs Smoke & CO2
@@ -51,20 +65,35 @@
     entities:
       - binary_sensor.front_door_sensor_zwave
       - switch.upstairs_hallway_dimmer_zwave
+
+  exterior_lighting_card:
+    name: Exterior Lights
+    entities:
+      - switch.driveway_lights_toggle_zwave
       - switch.front_porch_lights_toggle_zwave
+      - switch.vestibule_lights_toggle_zwave
+
+  side_door_card:
+    name: Side Door
+    entities:
+      - switch.vestibule_lights_toggle_zwave
+      - binary_sensor.ring_side_door_ding
+      - binary_sensor.ring_side_door_motion
 
   garage_card:
     name: Garage
     entities:
-      - binary_sensor.garage_entry_door_sensor_zwave
-      - switch.garage_entry_lights_toggle_zwave
       - switch.garage_lights_toggle_zwave
-      - switch.driveway_lights_toggle_zwave
-      - switch.vestibule_lights_toggle_zwave
       - cover.garage_door
       - sensor.garage_door_status
       - sensor.garage_door_time_in_state
       - sensor.garage_door_wifi_signal_strength
+
+  garage_entry_card:
+    name: Garage Entry
+    entities:
+      - binary_sensor.garage_entry_door_sensor_zwave
+      - switch.garage_entry_lights_toggle_zwave
 
   family_room_card:
     name: Family Room
@@ -172,6 +201,8 @@
       entities:
         - group.kitchen_card
         - group.kitchen_protect_card
+        - group.ring_doorbell_card
+        - switch.vestibule_lights_toggle_zwave
         - automation.turn_kitchen_light_on
         - automation.turn_kitchen_light_off
 
@@ -180,6 +211,8 @@
     view: yes
     entities:
       - group.garage_card
+      - group.garage_entry_card
+      - switch.driveway_lights_toggle_zwave
       - automation.turn_garage_lights_off
       - automation.turn_garage_lights_on
       - automation.turn_garage_entry_light_on
@@ -198,6 +231,7 @@
     view: yes
     entities:
       - group.front_room_card
+      - switch.front_porch_lights_toggle_zwave
       - automation.speak_front_door_closed
       - automation.speak_front_door_open
 
@@ -208,6 +242,7 @@
       - group.master_bedroom_card
       - group.upstairs_protect_card
       - switch.upstairs_hallway_dimmer_zwave
+      - media_player.chromecastaudio8791
 
   basement_view:
     name: Basement

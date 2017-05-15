@@ -9,3 +9,5 @@ echo "nest_client_ID: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "nest_client_secret: dummy" >> $TRAVIS_BUILD_DIR/secrets.yaml
 echo "garadget_username: dummy" >>  $TRAVIS_BUILD_DIR/secrets.yaml
 echo "garadget_password: dummy" >>  $TRAVIS_BUILD_DIR/secrets.yaml
+echo "ring_username: dummy" >>  $TRAVIS_BUILD_DIR/secrets.yaml
+echo "ring_password: dummy" >>  $TRAVIS_BUILD_DIR/secrets.yaml

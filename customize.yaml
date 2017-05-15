@@ -18,7 +18,7 @@
     device_class: opening
     icon: mdi:glassdoor
   binary_sensor.garage_entry_door_sensor_zwave:
-    friendly_name: Garage Entry
+    friendly_name: Garage Entry Door
     device_class: opening
     icon: mdi:glassdoor
 
@@ -54,7 +54,7 @@
     friendly_name: Driveway Lights
     icon: mdi:lightbulb-on-outline
   switch.vestibule_lights_toggle_zwave:
-    friendly_name: Side Door Lights
+    friendly_name: Side Door Porch Lights
     icon: mdi:lightbulb-on-outline
 
   sensor.family_room_thermostat_nest_temperature:
