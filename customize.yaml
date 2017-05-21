@@ -14,11 +14,11 @@
     icon: mdi:account-circle
 
   binary_sensor.front_door_sensor_zwave:
-    friendly_name: Front Door
+    friendly_name: Front Door Sensor
     device_class: opening
     icon: mdi:glassdoor
   binary_sensor.garage_entry_door_sensor_zwave:
-    friendly_name: Garage Entry Door
+    friendly_name: Garage Entry Sensor
     device_class: opening
     icon: mdi:glassdoor
 
