@@ -1,3 +1,14 @@
+
+  binary_sensor.kitchen_nest_protect_online:
+    friendly_name: Kitchen Protect
+    icon: mdi:nest-protect
+  binary_sensor.basement_nest_protect_online:
+    friendly_name: Basement Protect
+    icon: mdi:nest-protect
+  binary_sensor.upstairs_nest_protect_online:
+    friendly_name: Upstairs Protect
+    icon: mdi:nest-protect
+
   sensor.garage_door_time_in_state:
     icon: mdi:timer-sand
   sensor.garage_door_wifi_signal_strength:

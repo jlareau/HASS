@@ -10,6 +10,9 @@
       - group.master_bedroom_card
       - group.default_environment_card
       - group.exterior_lighting_card
+      - binary_sensor.kitchen_nest_protect_online
+      - binary_sensor.upstairs_nest_protect_online
+      - binary_sensor.basement_nest_protect_online
 
   ring_doorbell_card:
     name: Ring Side Door
@@ -93,6 +96,7 @@
   garage_entry_card:
     name: Garage Entry
     entities:
+      - lock.garage_entry_lock
       - binary_sensor.garage_entry_door_sensor_zwave
       - switch.garage_entry_lights_toggle_zwave
 
