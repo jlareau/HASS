@@ -1,6 +1,7 @@
   default_view:
     view: yes
     entities:
+      - group.sensor_node_1_card
       - group.family_room_card
       - group.kitchen_card
       - group.side_door_card
@@ -150,6 +151,15 @@
       #- sensor.yr_low_clouds
       #- sensor.yr_medium_clouds
       #- sensor.yr_wind_direction
+
+  sensor_node_1_card:
+    name: Sensor Node 1
+    entities:
+      - sensor.sn1_temperature
+      - sensor.sn1_humidity
+      - sensor.sn1_ldr
+      - sensor.sn1_pir
+      - light.sn1_led
 
   lights_view:
     name: Lights
